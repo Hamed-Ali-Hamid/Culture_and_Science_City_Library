@@ -1,0 +1,177 @@
+* { box-sizing: border-box; font-family: "Cairo", sans-serif; }
+body {
+  font-family: "Cairo", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  direction: rtl;
+
+  /* خلفية الصورة */
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+
+  /* وضع نسبي لتأثير البلور */
+  position: relative;
+  min-height: 100vh;
+}
+/* طبقة البلور */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* قوة البلور */
+  background-color: rgba(255, 255, 255, 0.35); /* شفافية فاتحة */
+  z-index: -1;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ====== النماذج ====== */
+.form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #ccc;
+  max-width: 400px;
+  margin: 80px auto;
+}
+.form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+}
+.form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #ffaa17bd;
+  color: white;
+  cursor: pointer;
+}
+.form button:hover {
+  background: #ffaa17bd;
+}
+.form p {
+  text-align: center;
+  margin-top: 10px;
+}
+.form a { color: #3b82f6; cursor: pointer; }
+
+/* ====== الصفحة الرئيسية ====== */
+#home, #favorites { display: none; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffaa17bd;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 0 0 15px 15px;
+}
+header input {
+  width: 60%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+.categories {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.categories button {
+  background: #e5e7eb;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+.categories button:hover {
+  background: #d1d5db;
+}
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+.book {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 6px #ccc;
+}
+.book img {
+  width: 100%;
+  border-radius: 10px;
+  height: 180px;
+  object-fit: cover;
+}
+.book h3 { margin: 10px 0 5px; font-size: 1rem; }
+.book button {
+  margin: 3px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.download { background: #10b981; color: white; }
+.fav { background: #f43f5e; color: white; }
+
+/* ====== المفضلة ====== */
+#favorites .book { position: relative; }
+.remove {
+  background: #ef4444;
+  color: white;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffaa1777; /* نصف شفاف */
+  backdrop-filter: blur(6px);     /* تأثير البلور */
+  color: #000000;
+  padding: 10px 0;
+  font-size: 14px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.site-footer a.uni-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #00c8ff;
+  text-decoration: none;
+}
+
+.site-footer a.uni-link img {
+  height: 70px;
+  width: auto;
+}
+
+.site-footer a.uni-link:hover {
+  text-decoration: underline;
+}
+
