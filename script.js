@@ -1,4 +1,3 @@
-// ===== بيانات الكتب =====
 const books = [
   { title: "الخيميائي", author: "باولو كويلو", category: "روايات", pdf: "link1.pdf", img: "https://i.ibb.co/3RkCfsM/book1.jpg" },
   { title: "نظرية كل شيء", author: "ستيفن هوكينج", category: "علمي", pdf: "link2.pdf", img: "https://i.ibb.co/bFJbT1C/book2.jpg" },
@@ -7,9 +6,8 @@ const books = [
   { title: "عالم صوفي", author: "جوستاين غاردر", category: "روايات", pdf: "link5.pdf", img: "https://i.ibb.co/3z1xZbW/book5.jpg" }
 ];
 
-let favorites = [];
+let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 
-// ===== التسجيل =====
 function showSignup() {
   document.getElementById('login').style.display = 'none';
   document.getElementById('signup').style.display = 'block';
@@ -33,23 +31,18 @@ function signup() {
   }
 }
 
-// ===== تسجيل الدخول =====
 function login() {
   const email = document.getElementById('loginEmail').value;
   const pass = document.getElementById('loginPass').value;
   const user = JSON.parse(localStorage.getItem('user'));
 
   if (user && user.email === email && user.pass === pass) {
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('home').style.display = 'block';
-    displayBooks(books);
-    enableSearch();
+    window.location.href = "home.html";
   } else {
     alert('بيانات الدخول غير صحيحة!');
   }
 }
 
-// ===== عرض الكتب =====
 function displayBooks(list) {
   const container = document.getElementById('bookList');
   container.innerHTML = '';
@@ -72,7 +65,6 @@ function displayBooks(list) {
   });
 }
 
-// ===== تصفية حسب الفئة =====
 function filterBooks(cat) {
   if (cat === 'all') displayBooks(books);
   else {
@@ -81,20 +73,33 @@ function filterBooks(cat) {
   }
 }
 
-// ===== المفضلة =====
 function addFavorite(index) {
   const book = books[index];
-  if (!favorites.includes(book)) {
+  // use a stable unique field for check (pdf)
+  if (!favorites.find(f => f.pdf === book.pdf)) {
     favorites.push(book);
+    localStorage.setItem('favorites', JSON.stringify(favorites)); // persist
     alert('تمت الإضافة إلى المفضلة ❤️');
+  } else {
+    alert('الكتاب موجود بالفعل في المفضلة');
   }
 }
 
 function showFavorites() {
-  document.getElementById('home').style.display = 'none';
-  document.getElementById('favorites').style.display = 'block';
+  window.location.href = "favorites.html";
+}
 
+function removeFavorite(i) {
+  favorites.splice(i, 1);
+  localStorage.setItem('favorites', JSON.stringify(favorites)); // update storage
+  renderFavorites();
+}
+
+function renderFavorites() {
+  favorites = JSON.parse(localStorage.getItem('favorites') || '[]'); // reload in case page change
   const favList = document.getElementById('favList');
+  if (!favList) return; // not on the favorites page
+
   favList.innerHTML = '';
 
   if (favorites.length === 0) {
@@ -115,17 +120,10 @@ function showFavorites() {
   });
 }
 
-function removeFavorite(i) {
-  favorites.splice(i, 1);
-  showFavorites();
-}
-
 function backHome() {
-  document.getElementById('favorites').style.display = 'none';
-  document.getElementById('home').style.display = 'block';
+  window.location.href = "home.html";
 }
 
-// ===== ميزة البحث =====
 function enableSearch() {
   const searchInput = document.getElementById('search');
   searchInput.addEventListener('input', function () {
