@@ -6,15 +6,13 @@ body {
   text-align: center;
   direction: rtl;
 
-  /* خلفية الصورة */
   background: url("https://github.com/Hamed-Ali-Hamid/Culture_and_Science_City_Library/blob/main/background.jpg?raw=true") no-repeat center center fixed;
   background-size: cover;
 
-  /* وضع نسبي لتأثير البلور */
   position: relative;
   min-height: 100vh;
 }
-/* طبقة البلور */
+
 body::before {
   content: "";
   position: fixed;
@@ -22,8 +20,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(10px); /* قوة البلور */
-  background-color: rgba(255, 255, 255, 0.35); /* شفافية فاتحة */
+  backdrop-filter: blur(10px); 
+  background-color: rgba(255, 255, 255, 0.35);
   z-index: -1;
 }
 .container {
@@ -32,7 +30,7 @@ body::before {
   padding: 20px;
 }
 
-/* ====== النماذج ====== */
+
 .form {
   background: #ffffff;
   padding: 30px;
@@ -71,7 +69,7 @@ body::before {
 }
 .form a { color: #3b82f6; cursor: pointer; }
 
-/* ====== الصفحة الرئيسية ====== */
+/*home*/
 #home, #favorites { display: none; }
 
 header {
@@ -134,7 +132,7 @@ header input {
 .download { background: #10b981; color: white; }
 .fav { background: #f43f5e; color: white; }
 
-/* ====== المفضلة ====== */
+/*favorites*/
 #favorites .book { position: relative; }
 .remove {
   background: #ef4444;
@@ -145,8 +143,8 @@ header input {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: #ffaa1777; /* نصف شفاف */
-  backdrop-filter: blur(6px);     /* تأثير البلور */
+  background: #ffaa1777;
+  backdrop-filter: blur(6px);
   color: #000000;
   padding: 10px 0;
   font-size: 14px;
@@ -174,6 +172,7 @@ header input {
 .site-footer a.uni-link:hover {
   text-decoration: underline;
 }
+
 
 
 
