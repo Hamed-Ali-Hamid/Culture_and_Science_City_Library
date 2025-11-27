@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <title>Library</title>
+  <link href="Image.gif" type="imag/x-icon" rel="icon" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <section id="home" style="display: block;">
+    <header>
+      <h2>📖 Culture and Science City Library</h2>
+      <input type="text" id="search" placeholder="ابحث عن كتاب...">
+      <button onclick="showFavorites()">المفضلة ❤️</button>
+    </header>
+
+    <div class="container">
+      <div class="categories">
+        <button onclick="filterBooks('all')">الكل</button>
+        <button onclick="filterBooks('روايات')">روايات</button>
+        <button onclick="filterBooks('علمي')">علمي</button>
+        <button onclick="filterBooks('تاريخي')">تاريخي</button>
+        <button onclick="filterBooks('ديني')">ديني</button>
+      </div>
+
+      <div class="books" id="bookList"></div>
+    </div>
+  </section>
+
+  
+    <footer class="site-footer">
+      <a href="https://csi.edu.eg/" target="_blank" class="uni-link">
+        <img src="Image.gif" alt="موقع مدينة الثقافة والعلوم">
+      </a>
+      <p>موقع مدينة الثقافة والعلوم</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script> 
+      displayBooks(books);
+      enableSearch();
+    </script>
+</body>
+</html>
