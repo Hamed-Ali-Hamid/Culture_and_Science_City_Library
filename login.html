@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <title>Culture and Science City Library</title>
+  <link href="Image.gif" type="imag/x-icon" rel="icon" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="login" class="form">
+    <h2>تسجيل الدخول</h2>
+    <input type="email" id="loginEmail" placeholder="البريد الإلكتروني">
+    <input type="password" id="loginPass" placeholder="كلمة المرور">
+    <button onclick="login()">تسجيل الدخول</button>
+    <p>ليس لديك حساب؟ <a onclick="showSignup()">إنشاء حساب</a></p>
+  </section>
+
+  <section id="signup" class="form" style="display:none;">
+    <h2>إنشاء حساب جديد</h2>
+    <input type="text" id="firstName" placeholder="الاسم الأول">
+    <input type="text" id="lastName" placeholder="الاسم الثاني">
+    <input type="number" id="age" placeholder="العمر">
+    <input type="email" id="email" placeholder="البريد الإلكتروني">
+    <input type="password" id="password" placeholder="كلمة المرور">
+    <input type="password" id="confirmPassword" placeholder="تأكيد كلمة المرور">
+    <button onclick="signup()">إنشاء الحساب</button>
+    <p>لديك حساب؟ <a onclick="showLogin()">تسجيل الدخول</a></p>
+  </section>
+
+  
+  <footer class="site-footer">
+    <a href="https://csi.edu.eg/" target="_blank" class="uni-link">
+      <img src="Image.gif" alt="موقع مدينة الثقافة والعلوم">
+    </a>
+    <p>موقع مدينة الثقافة والعلوم</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
