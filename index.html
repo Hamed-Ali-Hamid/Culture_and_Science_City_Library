@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Culture and Science City Library</title>
-  <link href="Image.gif" type="imag/x-icon" rel="icon" />
+  <link href="https://github.com/Hamed-Ali-Hamid/Culture_and_Science_City_Library/blob/main/Image.gif?raw=true" rel="icon" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- تسجيل الدخول -->
   <section id="login" class="form">
     <h2>تسجيل الدخول</h2>
     <input type="email" id="loginEmail" placeholder="البريد الإلكتروني">
@@ -15,7 +18,8 @@
     <p>ليس لديك حساب؟ <a onclick="showSignup()">إنشاء حساب</a></p>
   </section>
 
-  <section id="signup" class="form" style="display:none;">
+  <!-- إنشاء حساب -->
+  <section id="signup" class="form">
     <h2>إنشاء حساب جديد</h2>
     <input type="text" id="firstName" placeholder="الاسم الأول">
     <input type="text" id="lastName" placeholder="الاسم الثاني">
@@ -27,18 +31,97 @@
     <p>لديك حساب؟ <a onclick="showLogin()">تسجيل الدخول</a></p>
   </section>
 
-  
+  <!-- الرئيسية -->
+  <section id="home">
+    <header>
+      <h2>📖 Culture and Science City Library</h2>
+      <input type="text" id="search" placeholder="ابحث عن كتاب...">
+      <button class="profile-btn" onclick="showProfile()">
+        <img id="navProfileImg" class="nav-profile-img"
+             src="https://i.ibb.co/Qc7G9bM/default-avatar.png" alt="الصورة">
+      </button>
+    </header>
+
+    <div class="container">
+      <div class="categories">
+        <button onclick="filterBooks('all')">الكل</button>
+        
+        <button onclick="filterBooks('فنون')">فنون</button>
+
+        <button onclick="filterBooks('العلوم والطبيعة')">العلوم والطبيعة</button>
+
+        <button onclick="filterBooks('تاريخ وجغرافيا')">تاريخ وجغرافيا</button>
+
+        <button onclick="filterBooks('كتب دينية')">كتب دينية</button>
+
+        <button onclick="filterBooks('تنمية بشرية')">تنمية بشرية</button>
+
+        <button onclick="filterBooks('لغة')">لغة</button>
+
+        <button onclick="filterBooks('صحافة وإعلام')">صحافة وإعلام</button>
+
+        <button onclick="filterBooks('كتب علوم الهندسة')">كتب علوم الهندسة</button>
+
+        <button onclick="filterBooks('صحة وطب')">صحة وطب</button>
+
+      </div>
+      <div class="books" id="bookList"></div>
+    </div>
+  </section>
+
+  <!-- الملف الشخصي -->
+  <section id="profile">
+    <header>
+      <h2>الملف الشخصي</h2>
+      <div>
+        <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+        <button onclick="showSection('home')">الرئيسية ⬅</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="profile-wrapper">
+        <div class="profile-info">
+          <div class="profile-image-box">
+            <img id="profileImgPreview" alt="صورة الملف">
+            <label class="upload-btn">
+              اختر صورة
+              <input type="file" accept="image/*" onchange="changeProfileImage(event)">
+            </label>
+          </div>
+          <div class="profile-form">
+            <input type="text" id="pFirstName" placeholder="الاسم الأول">
+            <input type="text" id="pLastName" placeholder="الاسم الثاني">
+            <input type="number" id="pAge" placeholder="العمر">
+            <input type="email" id="pEmail" placeholder="البريد الإلكتروني">
+            <input type="password" id="pPassword" placeholder="كلمة المرور">
+            <button onclick="saveProfile()">حفظ التعديلات</button>
+            <button class="fav-page-btn" onclick="showSection('favorites')">صفحة المفضلة ❤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- المفضلة -->
+  <section id="favorites">
+    <header>
+      <h2>❤ المفضلة</h2>
+      <button onclick="showSection('profile')">الملف الشخصي ⬅</button>
+    </header>
+    <div class="container">
+      <div class="books" id="favList"></div>
+    </div>
+  </section>
+
+  <!-- الفوتر زي زمان -->
   <footer class="site-footer">
     <a href="https://csi.edu.eg/" target="_blank" class="uni-link">
-      <img src="Image.gif" alt="موقع مدينة الثقافة والعلوم">
+      <img src="https://github.com/Hamed-Ali-Hamid/Culture_and_Science_City_Library/blob/main/Image.gif?raw=true" alt="موقع مدينة الثقافة والعلوم">
     </a>
     <p>موقع مدينة الثقافة والعلوم</p>
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
-
-
-
