@@ -1,6 +1,5 @@
 *{box-sizing:border-box;font-family:"Cairo",sans-serif;}
 
-/* خلفية بالصورة + بلور */
 body{
   margin:0;padding:0;text-align:center;direction:rtl;
   background:url("https://github.com/Hamed-Ali-Hamid/Culture_and_Science_City_Library/blob/main/background.jpg?raw=true") no-repeat center/cover fixed;
@@ -109,7 +108,6 @@ header button{border:0;border-radius:8px;cursor:pointer;padding:5px 9px;}
 .profile-form button:hover{background:#ffaa17;}
 .fav-page-btn{background:#f97316;}
 
-/* الفوتر زي التصميم الأصلي تقريبًا */
 .site-footer{
   position:fixed;
   bottom:0;
