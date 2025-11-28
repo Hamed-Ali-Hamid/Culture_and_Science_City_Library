@@ -1,178 +1,142 @@
-* { box-sizing: border-box; font-family: "Cairo", sans-serif; }
-body {
-  font-family: "Cairo", sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  direction: rtl;
+*{box-sizing:border-box;font-family:"Cairo",sans-serif;}
 
-  background: url("https://github.com/Hamed-Ali-Hamid/Culture_and_Science_City_Library/blob/main/background.jpg?raw=true") no-repeat center center fixed;
-  background-size: cover;
-
-  position: relative;
-  min-height: 100vh;
+/* خلفية بالصورة + بلور */
+body{
+  margin:0;padding:0;text-align:center;direction:rtl;
+  background:url("https://github.com/Hamed-Ali-Hamid/Culture_and_Science_City_Library/blob/main/background.jpg?raw=true") no-repeat center/cover fixed;
+  position:relative;min-height:100vh;
 }
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(10px); 
-  background-color: rgba(255, 255, 255, 0.35);
-  z-index: -1;
-}
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+body::before{
+  content:"";position:fixed;inset:0;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.35);
+  z-index:-1;
 }
 
+section{display:none;}
+#login{display:block;}
 
-.form {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #ccc;
-  max-width: 400px;
-  margin: 80px auto;
-}
-.form h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.form input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: 1px solid #bbb;
-}
-.form button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #ffaa17bd;
-  color: white;
-  cursor: pointer;
-}
-.form button:hover {
-  background: #ffaa17bd;
-}
-.form p {
-  text-align: center;
-  margin-top: 10px;
-}
-.form a { color: #3b82f6; cursor: pointer; }
+.container{max-width:900px;margin:0 auto;padding:20px;}
 
-/*home*/
-#home, #favorites { display: none; }
+.form{
+  background:#fff;padding:25px;border-radius:12px;
+  box-shadow:0 0 8px #ccc;max-width:380px;margin:80px auto;
+}
+.form h2{margin-bottom:15px;}
+.form input{
+  width:100%;padding:8px;margin:6px 0;
+  border-radius:8px;border:1px solid #bbb;
+}
+.form button{
+  width:100%;padding:9px;margin-top:8px;border:0;
+  border-radius:8px;background:#ffaa17bd;color:#fff;cursor:pointer;
+}
+.form button:hover{background:#ffaa17;}
+.form p{margin-top:8px;font-size:14px;}
+.form a{color:#2563eb;cursor:pointer;}
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffaa17bd;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 0 0 15px 15px;
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  background:#ffaa17bd;color:#fff;padding:8px 12px;
 }
-header input {
-  width: 60%;
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
+header input{
+  width:60%;padding:6px;border-radius:8px;border:0;
 }
-.categories {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
-  flex-wrap: wrap;
-}
-.categories button {
-  background: #e5e7eb;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 15px;
-  cursor: pointer;
-}
-.categories button:hover {
-  background: #d1d5db;
-}
-.books {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-}
-.book {
-  background: white;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 0 6px #ccc;
-}
-.book img {
-  width: 100%;
-  border-radius: 10px;
-  height: 180px;
-  object-fit: cover;
-}
-.book h3 { margin: 10px 0 5px; font-size: 1rem; }
-.book button {
-  margin: 3px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.download { background: #10b981; color: white; }
-.fav { background: #f43f5e; color: white; }
+header button{border:0;border-radius:8px;cursor:pointer;padding:5px 9px;}
 
-/*favorites*/
-#favorites .book { position: relative; }
-.remove {
-  background: #ef4444;
-  color: white;
+.profile-btn{
+  background:none;border:none;padding:0;cursor:pointer;
 }
-
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #ffaa1777;
-  backdrop-filter: blur(6px);
-  color: #000000;
-  padding: 10px 0;
-  font-size: 14px;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+.nav-profile-img{
+  width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff;
 }
+.logout-btn{background:#ef4444;color:#fff;margin-left:4px;font-size:13px;}
 
-.site-footer a.uni-link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #00c8ff;
-  text-decoration: none;
+.categories{
+  display:flex;gap:6px;margin:15px 0;flex-wrap:wrap;justify-content:center;
 }
-
-.site-footer a.uni-link img {
-  height: 70px;
-  width: auto;
+.categories button{
+  background:#e5e7eb;border:0;border-radius:18px;
+  padding:5px 10px;cursor:pointer;font-size:13px;
 }
+.categories button:hover{background:#d1d5db;}
 
-.site-footer a.uni-link:hover {
-  text-decoration: underline;
+.books{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;
 }
+.book{
+  background:#fff;border-radius:10px;padding:8px;
+  box-shadow:0 0 5px #ccc;
+}
+.book img{
+  width:100%;height:160px;border-radius:8px;object-fit:cover;
+}
+.book h3{margin:8px 0 4px;font-size:14px;}
+.book p{margin:0 0 5px;font-size:13px;}
+.book button{
+  margin:2px;padding:5px 8px;border:0;border-radius:8px;
+  cursor:pointer;font-size:12px;
+}
+.download{background:#10b981;color:#fff;}
+.fav{background:#f43f5e;color:#fff;}
+.remove{background:#ef4444;color:#fff;}
 
+.profile-wrapper{
+  background:#fff;border-radius:12px;padding:15px;box-shadow:0 0 8px #ccc;
+}
+.profile-info{
+  display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;
+}
+.profile-image-box{text-align:center;}
+#profileImgPreview{
+  width:120px;height:120px;border-radius:50%;object-fit:cover;
+  border:3px solid #ffaa17bd;margin-bottom:6px;background:#e5e7eb;
+}
+.upload-btn{
+  display:inline-block;padding:5px 9px;border-radius:8px;
+  background:#2563eb;color:#fff;cursor:pointer;font-size:12px;
+}
+.upload-btn input{display:none;}
 
+.profile-form{min-width:220px;max-width:300px;}
+.profile-form input{
+  width:100%;padding:7px;margin:4px 0;border-radius:8px;border:1px solid #bbb;
+}
+.profile-form button{
+  width:100%;padding:7px;margin-top:5px;border-radius:8px;
+  border:0;background:#ffaa17bd;color:#fff;cursor:pointer;font-size:13px;
+}
+.profile-form button:hover{background:#ffaa17;}
+.fav-page-btn{background:#f97316;}
 
-
+/* الفوتر زي التصميم الأصلي تقريبًا */
+.site-footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#ffaa1777;
+  backdrop-filter:blur(6px);
+  color:#000;
+  padding:10px 0;
+  font-size:14px;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.site-footer a.uni-link{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  color:#00c8ff;
+  text-decoration:none;
+}
+.site-footer a.uni-link img{
+  height:70px;
+  width:auto;
+}
+.site-footer a.uni-link:hover{
+  text-decoration:underline;
+}
