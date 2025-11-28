@@ -1,4 +1,3 @@
-// كتب تجريبية
 const books=[
   {title:"موسيقى",author:"جبران خليل جبران",category:"فنون",pdf:"https://foulabook.com/book/downloading/586998032",img:"https://foulabook.com/storage/photo/87363.2018-02-25.1519564759.PNG"},
   {title:"أينشتين والنسبية",author:"مصطفى محمود",category:"العلوم والطبيعة",pdf:"https://foulabook.com/book/downloading/168642777",img:"https://foulabook.com/storage/photo/27167.2018-03-26.1522081649.jpg"},
@@ -24,6 +23,16 @@ let favorites=[],currentUser=null;
 const defaultAvatar="https://i.ibb.co/Qc7G9bM/default-avatar.png";
 const sections=["login","signup","home","profile","favorites"];
 
+window.addEventListener("DOMContentLoaded", () => {
+  const savedImg = localStorage.getItem("profileImg");
+  if (savedImg) {
+    const profilePreview = document.getElementById("profileImgPreview");
+    const navImg = document.getElementById("navProfileImg");
+    if(profilePreview) profilePreview.src = savedImg;
+    if(navImg) navImg.src = savedImg;
+  }
+});
+
 function showSection(id){
   sections.forEach(s=>{
     const el=document.getElementById(s);
@@ -37,7 +46,6 @@ function validAge(a){a=parseInt(a,10);return!isNaN(a)&&a>=10&&a<=100;}
 function showSignup(){showSection("signup");}
 function showLogin(){showSection("login");}
 
-// إنشاء حساب
 function signup(){
   const f=document.getElementById('firstName').value.trim();
   const l=document.getElementById('lastName').value.trim();
@@ -57,7 +65,6 @@ function signup(){
   showLogin();
 }
 
-// تسجيل الدخول
 function login(){
   const e=document.getElementById('loginEmail').value.trim();
   const p=document.getElementById('loginPass').value;
@@ -72,14 +79,12 @@ function login(){
   }else alert("بيانات الدخول غير صحيحة");
 }
 
-// تسجيل الخروج
 function logout(){
   currentUser=null;
   document.getElementById("navProfileImg").src=defaultAvatar;
   showSection("login");
 }
 
-// عرض الكتب
 function displayBooks(list){
   const box=document.getElementById("bookList");
   box.innerHTML="";
@@ -96,13 +101,11 @@ function displayBooks(list){
   });
 }
 
-// تصفية حسب الفئة
 function filterBooks(cat){
   if(cat==="all")displayBooks(books);
   else displayBooks(books.filter(b=>b.category===cat));
 }
 
-// المفضلة
 function addFavorite(i){
   const b=books[i];
   if(!favorites.includes(b)){favorites.push(b);alert("أضيفت للمفضلة");}
@@ -128,7 +131,6 @@ function removeFavorite(i){
   renderFavorites();
 }
 
-// الملف الشخصي
 function showProfile(){
   if(!currentUser){
     const u=localStorage.getItem("user");
@@ -165,7 +167,6 @@ function saveProfile(){
   alert("تم الحفظ");
 }
 
-// صورة البروفايل
 function changeProfileImage(ev){
   const file=ev.target.files[0];
   if(!file)return;
@@ -173,18 +174,19 @@ function changeProfileImage(ev){
   r.onload=e=>{
     const imgData=e.target.result;
     document.getElementById("profileImgPreview").src=imgData;
+    document.getElementById("navProfileImg").src=imgData;
+
     if(!currentUser){
       const u=localStorage.getItem("user");
       currentUser=u?JSON.parse(u):{};
     }
     currentUser.profileImg=imgData;
     localStorage.setItem("user",JSON.stringify(currentUser));
-    document.getElementById("navProfileImg").src=imgData;
+    localStorage.setItem("profileImg", imgData);
   };
   r.readAsDataURL(file);
 }
 
-// بحث
 function enableSearch(){
   const s=document.getElementById("search");
   if(!s)return;
