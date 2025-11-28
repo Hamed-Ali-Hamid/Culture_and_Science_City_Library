@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- تسجيل الدخول -->
   <section id="login" class="form">
     <h2>تسجيل الدخول</h2>
     <input type="email" id="loginEmail" placeholder="البريد الإلكتروني">
@@ -18,7 +17,6 @@
     <p>ليس لديك حساب؟ <a onclick="showSignup()">إنشاء حساب</a></p>
   </section>
 
-  <!-- إنشاء حساب -->
   <section id="signup" class="form">
     <h2>إنشاء حساب جديد</h2>
     <input type="text" id="firstName" placeholder="الاسم الأول">
@@ -31,45 +29,32 @@
     <p>لديك حساب؟ <a onclick="showLogin()">تسجيل الدخول</a></p>
   </section>
 
-  <!-- الرئيسية -->
   <section id="home">
     <header>
       <h2>📖 Culture and Science City Library</h2>
       <input type="text" id="search" placeholder="ابحث عن كتاب...">
       <button class="profile-btn" onclick="showProfile()">
-        <img id="navProfileImg" class="nav-profile-img"
-             src="https://i.ibb.co/Qc7G9bM/default-avatar.png" alt="الصورة">
+        <img id="navProfileImg" class="nav-profile-img" src="https://i.ibb.co/Qc7G9bM/default-avatar.png" alt="الصورة">
       </button>
     </header>
 
     <div class="container">
       <div class="categories">
         <button onclick="filterBooks('all')">الكل</button>
-        
         <button onclick="filterBooks('فنون')">فنون</button>
-
         <button onclick="filterBooks('العلوم والطبيعة')">العلوم والطبيعة</button>
-
         <button onclick="filterBooks('تاريخ وجغرافيا')">تاريخ وجغرافيا</button>
-
         <button onclick="filterBooks('كتب دينية')">كتب دينية</button>
-
         <button onclick="filterBooks('تنمية بشرية')">تنمية بشرية</button>
-
         <button onclick="filterBooks('لغة')">لغة</button>
-
         <button onclick="filterBooks('صحافة وإعلام')">صحافة وإعلام</button>
-
         <button onclick="filterBooks('كتب علوم الهندسة')">كتب علوم الهندسة</button>
-
         <button onclick="filterBooks('صحة وطب')">صحة وطب</button>
-
       </div>
       <div class="books" id="bookList"></div>
     </div>
   </section>
 
-  <!-- الملف الشخصي -->
   <section id="profile">
     <header>
       <h2>الملف الشخصي</h2>
@@ -103,7 +88,6 @@
     </div>
   </section>
 
-  <!-- المفضلة -->
   <section id="favorites">
     <header>
       <h2>❤ المفضلة</h2>
@@ -114,7 +98,6 @@
     </div>
   </section>
 
-  <!-- الفوتر زي زمان -->
   <footer class="site-footer">
     <a href="https://csi.edu.eg/" target="_blank" class="uni-link">
       <img src="https://github.com/Hamed-Ali-Hamid/Culture_and_Science_City_Library/blob/main/Image.gif?raw=true" alt="موقع مدينة الثقافة والعلوم">
